@@ -13,7 +13,7 @@ const fs = require('fs'),
         cert: fs.readFileSync(__dirname + '/certs/selfsigned.crt'),
     },
     port = 8888;
-
+const passport = require('./auth/passport');
 const app = express();
 mongoose.connect('mongodb://127.0.0.1/nodeScheduler');
 
@@ -34,6 +34,10 @@ app.use(Session({
     resave: true,
     saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/login', require('./routes/login'));
 
 app.get('/',
     function (req, res) {
