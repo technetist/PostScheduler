@@ -1,6 +1,0 @@
-{
-  "appId" : "YOUR_APP_ID",
-  "appSecret" : "YOUR_APP_SECRET",
-  "sessionSecret" : "STRONG_SECRET",
-  "callbackURL" : "https://127.0.0.1:8888/login/facebook/callback"
-}
